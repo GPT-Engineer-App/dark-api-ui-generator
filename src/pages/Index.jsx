@@ -30,13 +30,26 @@ const Index = () => {
         API Data Fetcher
       </Heading>
       <Box mb={8}>
-        <Input placeholder="Start Date (YYYY/MM/DD)" value={startDate} onChange={(e) => setStartDate(e.target.value)} mr={4} />
-        <Input placeholder="Start Time (HH:mm:ss)" value={startTime} onChange={(e) => setStartTime(e.target.value)} mr={4} />
-        <Input placeholder="End Date (YYYY/MM/DD)" value={endDate} onChange={(e) => setEndDate(e.target.value)} mr={4} />
-        <Input placeholder="End Time (HH:mm:ss)" value={endTime} onChange={(e) => setEndTime(e.target.value)} mr={4} />
-        <Input placeholder="Hashkey" value={hashkey} onChange={(e) => setHashkey(e.target.value)} mr={4} />
-        <Input placeholder="Limit Start" value={limitStart} onChange={(e) => setLimitStart(e.target.value)} mr={4} />
-        <Input placeholder="Limit End" value={limitEnd} onChange={(e) => setLimitEnd(e.target.value)} />
+        <Text mb={1}>Start Date (YYYY/MM/DD)</Text>
+        <Input value={startDate} onChange={(e) => setStartDate(e.target.value)} mb={4} />
+
+        <Text mb={1}>Start Time (HH:mm:ss)</Text>
+        <Input value={startTime} onChange={(e) => setStartTime(e.target.value)} mb={4} />
+
+        <Text mb={1}>End Date (YYYY/MM/DD)</Text>
+        <Input value={endDate} onChange={(e) => setEndDate(e.target.value)} mb={4} />
+
+        <Text mb={1}>End Time (HH:mm:ss)</Text>
+        <Input value={endTime} onChange={(e) => setEndTime(e.target.value)} mb={4} />
+
+        <Text mb={1}>Hashkey</Text>
+        <Input value={hashkey} onChange={(e) => setHashkey(e.target.value)} mb={4} />
+
+        <Text mb={1}>Limit Start</Text>
+        <Input value={limitStart} onChange={(e) => setLimitStart(e.target.value)} mb={4} />
+
+        <Text mb={1}>Limit End</Text>
+        <Input value={limitEnd} onChange={(e) => setLimitEnd(e.target.value)} />
       </Box>
       <Button leftIcon={<FaSearch />} colorScheme="blue" onClick={fetchData} isLoading={isLoading} mb={8}>
         Fetch Data
