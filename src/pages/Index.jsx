@@ -18,7 +18,9 @@ const Index = () => {
 
   const fetchData = async () => {
     setIsLoading(true);
-    const response = await fetch(`https://tmapi.catague.app/api/pl.php?start=${startDate}${startTime}&end=${endDate}${endTime}&hashkey=${hashkey}&limits=${limitStart}&limite=${limitEnd}`);
+    const baseURL = "https://tmapi.catague.app/api/pl.php?";
+    const queryParams = `start=${encodeURIComponent(startDate + startTime)}&end=${encodeURIComponent(endDate + endTime)}&hashkey=${encodeURIComponent(hashkey)}&limits=${encodeURIComponent(limitStart)}&limite=${encodeURIComponent(limitEnd)}`;
+    const response = await fetch(`${baseURL}${queryParams}`);
     const jsonData = await response.json();
     setData(jsonData);
     setIsLoading(false);
