@@ -30,49 +30,57 @@ const Index = () => {
         API Data Fetcher
       </Heading>
       <Box mb={8}>
-        <Text mb={1}>Start Date (YYYY/MM/DD)</Text>
+        <Text mb={1} fontSize="lg" fontWeight="bold">
+          Start Date (YYYY/MM/DD)
+        </Text>
         <Input value={startDate} onChange={(e) => setStartDate(e.target.value)} mb={4} />
 
-        <Text mb={1}>Start Time (HH:mm:ss)</Text>
+        <Text mb={1} fontSize="lg" fontWeight="bold">
+          Start Time (HH:mm:ss)
+        </Text>
         <Input value={startTime} onChange={(e) => setStartTime(e.target.value)} mb={4} />
 
-        <Text mb={1}>End Date (YYYY/MM/DD)</Text>
+        <Text mb={1} fontSize="lg" fontWeight="bold">
+          End Date (YYYY/MM/DD)
+        </Text>
         <Input value={endDate} onChange={(e) => setEndDate(e.target.value)} mb={4} />
 
-        <Text mb={1}>End Time (HH:mm:ss)</Text>
+        <Text mb={1} fontSize="lg" fontWeight="bold">
+          End Time (HH:mm:ss)
+        </Text>
         <Input value={endTime} onChange={(e) => setEndTime(e.target.value)} mb={4} />
 
-        <Text mb={1}>Hashkey</Text>
+        <Text mb={1} fontSize="lg" fontWeight="bold">
+          Hashkey
+        </Text>
         <Input value={hashkey} onChange={(e) => setHashkey(e.target.value)} mb={4} />
 
-        <Text mb={1}>Limit Start</Text>
+        <Text mb={1} fontSize="lg" fontWeight="bold">
+          Limit Start
+        </Text>
         <Input value={limitStart} onChange={(e) => setLimitStart(e.target.value)} mb={4} />
 
-        <Text mb={1}>Limit End</Text>
+        <Text mb={1} fontSize="lg" fontWeight="bold">
+          Limit End
+        </Text>
         <Input value={limitEnd} onChange={(e) => setLimitEnd(e.target.value)} />
       </Box>
       <Button leftIcon={<FaSearch />} colorScheme="blue" onClick={fetchData} isLoading={isLoading} mb={8}>
         Fetch Data
       </Button>
       <Box bg="white" p={4} borderRadius="md" boxShadow="md">
-        <Table>
-          <Thead>
-            <Tr>
-              <Th>ID</Th>
-              <Th>Name</Th>
-              <Th>Date</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {data.map((item) => (
-              <Tr key={item.id}>
-                <Td>{item.id}</Td>
-                <Td>{item.name}</Td>
-                <Td>{item.date}</Td>
-              </Tr>
-            ))}
-          </Tbody>
-        </Table>
+        {data.map((item) => (
+          <Box key={item.id} mb={4}>
+            <Text>Username: {item.username}</Text>
+            <Text>Transaction ID: {item.transaction_id}</Text>
+            <Text>To User: {item.to_user}</Text>
+            <Text>Transfer Comment: {item.transfer_comment}</Text>
+            <Text>AfterBalance: {item.after_balance}</Text>
+            <Text>Amount: {item.amount}</Text>
+            <Text>Date: {item.date}</Text>
+            <Text>Before Balance: {item.before_balance}</Text>
+          </Box>
+        ))}
       </Box>
       <Button onClick={toggleColorMode} mt={8}>
         Toggle Color Mode
